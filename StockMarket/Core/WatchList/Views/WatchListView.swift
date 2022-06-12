@@ -11,36 +11,20 @@ struct WatchListView: View {
     
     @StateObject var vm = WatchListViewModel()
     @State private var symbolText = ""
+    @State private var showSearchView = false
     
     var body: some View {
   
         VStack {
-            
-            TextField("Symbol here...", text: $symbolText)
-                .frame(height: 50)
-                .background(.gray.opacity(0.2))
-                .padding()
-            
-            Button {
-                vm.getStock(for: symbolText)
-            } label: {
-                Text("Add Watch List")
-                    .foregroundColor(.white)
-                    .font(.headline)
-                    .frame(height: 50)
-                    .frame(maxWidth: .infinity)
-                    .background(.blue)
-                    .cornerRadius(10)
-            }
-            .padding()
+            customHeader
+            Divider()
+            listTitle
 
-
+            Spacer()
             
-            List {
-                ForEach(vm.stocks) { stock in
-                    Text(stock.symbol)
-                }
-            }
+        }
+        .fullScreenCover(isPresented: $showSearchView) {
+            SearchListView()
         }
     }
 }
@@ -48,5 +32,44 @@ struct WatchListView: View {
 struct WatchListView_Previews: PreviewProvider {
     static var previews: some View {
         WatchListView()
+    }
+}
+
+extension WatchListView {
+    
+    private var customHeader: some View {
+        HStack {
+            Spacer()
+            Text("My Watchlist")
+                .bold()
+            Spacer()
+            Button {
+                showSearchView.toggle()
+            } label: {
+                Image(systemName: "magnifyingglass")
+            }
+        }
+        .foregroundColor(.theme.accent)
+        .padding()
+    }
+    
+    private var listTitle: some View {
+        HStack {
+            Text("List")
+                .fontWeight(.semibold)
+                .foregroundColor(.theme.accent)
+
+            Spacer()
+            Text("Price")
+                .fontWeight(.semibold)
+                .foregroundColor(.theme.accent)
+            
+            Text("% Change")
+                .foregroundColor(.theme.accent)
+                .bold()
+                .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+        }
+        .font(.caption)
+        .padding(.horizontal)
     }
 }

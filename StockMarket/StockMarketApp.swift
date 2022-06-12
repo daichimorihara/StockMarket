@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct StockMarketApp: App {
+    
+    @StateObject var vm = WatchListViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            WatchListView()
+            NavigationView {
+                WatchListView()
+                    .navigationBarHidden(true)
+            }
+            .environmentObject(vm)
         }
     }
 }

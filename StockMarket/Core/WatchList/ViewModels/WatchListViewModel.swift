@@ -10,6 +10,8 @@ import Combine
 
 class WatchListViewModel: ObservableObject {
     @Published var stocks = [Quote]()
+    @Published var matches = [BestMatch]()
+    @Published var searchText = ""
     
     let quoteService = QuoteService()
     var cancellables = Set<AnyCancellable>()
@@ -19,6 +21,7 @@ class WatchListViewModel: ObservableObject {
     }
     
     func addSubscribers() {
+        
         quoteService.$stocks
             .sink { [weak self] returnedStocks in
                 self?.stocks = returnedStocks
@@ -29,4 +32,5 @@ class WatchListViewModel: ObservableObject {
     func getStock(for symbol: String) {
         quoteService.getQuote(for: symbol)
     }
+    
 }

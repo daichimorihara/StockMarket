@@ -21,7 +21,7 @@ class APIManager {
         getBaseURLString(type: .quote, q: "symbol", a: symbol)
     }
     
-    static func getSearchURLString(for keywords: String ) -> String {
+    static func getSearchURLString(for keywords: String) -> String {
         getBaseURLString(type: .search, q: "keywords", a: keywords)
     }
     
