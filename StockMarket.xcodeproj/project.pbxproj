@@ -23,6 +23,8 @@
 		4281C2212855C10100CB93B0 /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4281C2202855C10100CB93B0 /* SearchListView.swift */; };
 		4281C2252855E18700CB93B0 /* SearchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4281C2242855E18700CB93B0 /* SearchListViewModel.swift */; };
 		4281C2272855FE5A00CB93B0 /* SearchListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4281C2262855FE5A00CB93B0 /* SearchListRow.swift */; };
+		42AA3A972856D093004CB7F0 /* WatchListContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42AA3A952856D093004CB7F0 /* WatchListContainer.xcdatamodeld */; };
+		42AA3A992856D1D0004CB7F0 /* WatchListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA3A982856D1D0004CB7F0 /* WatchListService.swift */; };
 		42F3920C2852F6D400389A8B /* StockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F3920B2852F6D400389A8B /* StockDataService.swift */; };
 		42F392132852FEC900389A8B /* WatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F392122852FEC900389A8B /* WatchListView.swift */; };
 		42F392152852FED600389A8B /* WatchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F392142852FED600389A8B /* WatchListViewModel.swift */; };
@@ -48,6 +50,8 @@
 		4281C2202855C10100CB93B0 /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
 		4281C2242855E18700CB93B0 /* SearchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModel.swift; sourceTree = "<group>"; };
 		4281C2262855FE5A00CB93B0 /* SearchListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListRow.swift; sourceTree = "<group>"; };
+		42AA3A962856D093004CB7F0 /* WatchListContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WatchListContainer.xcdatamodel; sourceTree = "<group>"; };
+		42AA3A982856D1D0004CB7F0 /* WatchListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListService.swift; sourceTree = "<group>"; };
 		42F3920B2852F6D400389A8B /* StockDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDataService.swift; sourceTree = "<group>"; };
 		42F392122852FEC900389A8B /* WatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListView.swift; sourceTree = "<group>"; };
 		42F392142852FED600389A8B /* WatchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListViewModel.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 			children = (
 				42470A2A28520FC300EBF140 /* StockModel.swift */,
 				4281C21928559F3300CB93B0 /* SearchModel.swift */,
+				42AA3A952856D093004CB7F0 /* WatchListContainer.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,26 +133,10 @@
 		4281C21F2855C0DE00CB93B0 /* SearchList */ = {
 			isa = PBXGroup;
 			children = (
-				4281C2232855E16100CB93B0 /* ViewModels */,
-				4281C2222855E15E00CB93B0 /* Views */,
-			);
-			path = SearchList;
-			sourceTree = "<group>";
-		};
-		4281C2222855E15E00CB93B0 /* Views */ = {
-			isa = PBXGroup;
-			children = (
+				4281C2242855E18700CB93B0 /* SearchListViewModel.swift */,
 				4281C2202855C10100CB93B0 /* SearchListView.swift */,
 			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		4281C2232855E16100CB93B0 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				4281C2242855E18700CB93B0 /* SearchListViewModel.swift */,
-			);
-			path = ViewModels;
+			path = SearchList;
 			sourceTree = "<group>";
 		};
 		42F3920A2852F6C500389A8B /* Services */ = {
@@ -156,6 +145,7 @@
 				42F3920B2852F6D400389A8B /* StockDataService.swift */,
 				4218C5DC2854A31D00F00B6F /* QuoteService.swift */,
 				4281C21B2855BB5500CB93B0 /* SearchService.swift */,
+				42AA3A982856D1D0004CB7F0 /* WatchListService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -172,8 +162,8 @@
 		42F3920E2852FE9700389A8B /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				4281C21F2855C0DE00CB93B0 /* SearchList */,
 				42FECD9F2855848200750DD5 /* Components */,
+				4281C21F2855C0DE00CB93B0 /* SearchList */,
 				42F3920F2852FEA000389A8B /* WatchList */,
 			);
 			path = Core;
@@ -182,26 +172,10 @@
 		42F3920F2852FEA000389A8B /* WatchList */ = {
 			isa = PBXGroup;
 			children = (
-				42F392112852FEBE00389A8B /* ViewModels */,
-				42F392102852FEBA00389A8B /* Views */,
-			);
-			path = WatchList;
-			sourceTree = "<group>";
-		};
-		42F392102852FEBA00389A8B /* Views */ = {
-			isa = PBXGroup;
-			children = (
+				42F392142852FED600389A8B /* WatchListViewModel.swift */,
 				42F392122852FEC900389A8B /* WatchListView.swift */,
 			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		42F392112852FEBE00389A8B /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				42F392142852FED600389A8B /* WatchListViewModel.swift */,
-			);
-			path = ViewModels;
+			path = WatchList;
 			sourceTree = "<group>";
 		};
 		42FECD9F2855848200750DD5 /* Components */ = {
@@ -293,8 +267,10 @@
 				4281C21E2855BE0A00CB93B0 /* SearchBarView.swift in Sources */,
 				42FECDA1285584A400750DD5 /* WatchListRow.swift in Sources */,
 				42FECDA32855890700750DD5 /* Color.swift in Sources */,
+				42AA3A972856D093004CB7F0 /* WatchListContainer.xcdatamodeld in Sources */,
 				42470A1E28520FB200EBF140 /* ContentView.swift in Sources */,
 				42470A1C28520FB200EBF140 /* StockMarketApp.swift in Sources */,
+				42AA3A992856D1D0004CB7F0 /* WatchListService.swift in Sources */,
 				42F392132852FEC900389A8B /* WatchListView.swift in Sources */,
 				42470A2B28520FC300EBF140 /* StockModel.swift in Sources */,
 				4218C5DB285498F700F00B6F /* PreviewProvider.swift in Sources */,
@@ -503,6 +479,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		42AA3A952856D093004CB7F0 /* WatchListContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				42AA3A962856D093004CB7F0 /* WatchListContainer.xcdatamodel */,
+			);
+			currentVersion = 42AA3A962856D093004CB7F0 /* WatchListContainer.xcdatamodel */;
+			path = WatchListContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 42470A1028520FB200EBF140 /* Project object */;
 }

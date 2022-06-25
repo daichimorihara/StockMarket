@@ -19,9 +19,26 @@ struct WatchListView: View {
             customHeader
             Divider()
             listTitle
-
-            Spacer()
+            stockList
             
+            Button {
+                Task {
+                    await vm.downloadImages()
+                }
+            } label: {
+                Text("FNIEONEG")
+            }
+
+            
+            List {
+                ForEach(vm.symbols, id: \.self) { symbol in
+                    Text(symbol)
+                }
+           }
+            Spacer()
+        }
+        .task {
+            await vm.downloadImages()
         }
         .fullScreenCover(isPresented: $showSearchView) {
             SearchListView()
@@ -71,5 +88,19 @@ extension WatchListView {
         }
         .font(.caption)
         .padding(.horizontal)
+    }
+    
+    private var stockList: some View {
+        List {
+            ForEach(vm.stocks) { stock in
+                WatchListRow(stock: stock)
+                    .listRowInsets(.init(top: 10,
+                                         leading: 0,
+                                         bottom: 10,
+                                         trailing: 0)
+                    )
+            }
+        }
+        .listStyle(PlainListStyle())
     }
 }

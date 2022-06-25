@@ -10,30 +10,52 @@ import SwiftUI
 struct SearchListRow: View {
     
     let match: BestMatch
+    var isInWatchList: Bool
+    let updateWatchList: () -> ()
 
+//    init(match: BestMatch, isInWatchList: Bool) {
+//        self.match = match
+//        self.isInWatchList = isInWatchList
+//    }
+    
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Text(match.symbol)
-                    .font(.headline)
-                    .foregroundColor(.theme.accent)
-                
-                Text(match.region)
-                    .font(.caption)
-                    .foregroundColor(.theme.secondary)
-                
-                Text(match.currency)
-                    .font(.caption)
-                    .foregroundColor(.theme.secondary)
+        HStack {
+            VStack(alignment: .leading) {
+                HStack {
+                    Text(match.symbol)
+                        .font(.headline)
+                        .foregroundColor(.theme.accent)
+                    
+                    Text(match.region)
+                        .font(.caption)
+                        .foregroundColor(.theme.secondary)
+                    
+                    Text(match.currency)
+                        .font(.caption)
+                        .foregroundColor(.theme.secondary)
 
-                Spacer()
+                    Spacer()
+                }
+                
+                Text(match.name)
+                    .font(.caption)
+                    .foregroundColor(.theme.secondary)
             }
             
-            Text(match.name)
-                .font(.caption)
-                .foregroundColor(.theme.secondary)
+            Button {
+                updateWatchList()
+            } label: {
+                Text(isInWatchList ? "Delete" : "+ Watchlist")
+                    .foregroundColor(.theme.accent)
+                    .padding(5)
+                    .background(
+                        Color.theme.accent.opacity(0.2)
+                    )
+            }
+
+            
         }
-        .contentShape(Rectangle())
         
         
     }
@@ -41,7 +63,7 @@ struct SearchListRow: View {
 
 struct SearchListRow_Previews: PreviewProvider {
     static var previews: some View {
-        SearchListRow(match: dev.match)
+        SearchListRow(match: dev.match, isInWatchList: true, updateWatchList: {})
     }
 }
 

@@ -24,7 +24,12 @@ struct SearchListView: View {
             
             List {
                 ForEach(vm.matches) { match in
-                    SearchListRow(match: match)
+                    SearchListRow(match: match,
+                                  isInWatchList: vm.inWatchList(match: match),
+                                  updateWatchList:{
+                        vm.updateWatchList(match: match)
+                        watchVM.getStock(for: match.symbol)
+                    })
                 }
             }
             .listStyle(PlainListStyle())

@@ -13,6 +13,8 @@ class SearchListViewModel: ObservableObject {
     @Published var searchText = ""
     
     let searchService = SearchService()
+    let watchlistService = WatchListService.instance
+    
     var cancellables = Set<AnyCancellable>()
     
     init() {
@@ -45,4 +47,11 @@ class SearchListViewModel: ObservableObject {
         searchService.searchStocks(for: keywords)
     }
     
+    func updateWatchList(match: BestMatch) {
+        watchlistService.updateWatchList(match: match)
+    }
+    
+    func inWatchList(match: BestMatch) -> Bool {
+        watchlistService.isInWatchList(match: match)
+    }
 }
