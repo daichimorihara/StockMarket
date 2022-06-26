@@ -9,24 +9,22 @@ import Foundation
 import Combine
 
 class SearchService {
-    @Published var matches = [BestMatch]()
-    
-    var searchSubscription: AnyCancellable?
-    
-    init() {
+ 
+    func fetchMatches(keywords: String) async throws -> [BestMatch] {
+        let urlString = APIManager.getSearchURL(keywords: keywords)
+        guard let url = URL(string: urlString) else {
+            throw URLError(.badURL)
+        }
         
-    }
-    
-    func searchStocks(for keywords: String) {
-        let urlString = APIManager.getSearchURLString(for: keywords)
-        guard let url = URL(string: urlString) else { return }
-        
-        searchSubscription = NetworkingManager.download(url: url)
-            .decode(type: SearchModel.self, decoder: JSONDecoder())
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: NetworkingManager.handleCompletion) { [weak self] returnedSearchModel in
-                self?.matches = returnedSearchModel.bestMatches
-                self?.searchSubscription?.cancel()
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            if let decoded = try? JSONDecoder().decode(SearchModel.self, from: data) {
+                return decoded.bestMatches
+            } else {
+                throw URLError(.badURL)
             }
+        } catch {
+            throw error
+        }
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 class WatchListService {
-    
+
     static let instance = WatchListService()
     
     private let container: NSPersistentContainer
@@ -17,7 +17,6 @@ class WatchListService {
     private let entityName = "WatchListEntity"
     
     @Published var savedEntities = [WatchListEntity]()
-    
     
     private init() {
         container = NSPersistentContainer(name: containerName)
@@ -30,8 +29,8 @@ class WatchListService {
     }
     
     // MARK: PUBLIC
-    func updateWatchList(match: BestMatch) {
-        if let entity = savedEntities.first(where: { $0.symbol == match.symbol }) {
+    func update(match: BestMatch) {
+        if let entity = savedEntities.first(where: { $0.symbol ==  match.symbol}) {
             delete(entity: entity)
         } else {
             add(match: match)
@@ -39,14 +38,12 @@ class WatchListService {
     }
     
     func isInWatchList(match: BestMatch) -> Bool {
-        if savedEntities.first(where: { $0.symbol == match.symbol }) != nil {
+        if savedEntities.first(where: { $0.symbol ==  match.symbol}) != nil {
             return true
         } else {
             return false
         }
-            
     }
-    
     
     // MARK: PRIVATE
     private func add(match: BestMatch) {
@@ -66,7 +63,7 @@ class WatchListService {
         do {
             savedEntities = try container.viewContext.fetch(request)
         } catch {
-            print("Failed to fetch WatchList Entity: \(error)")
+            print("Failed to fetch WatchList Entity")
         }
     }
     
@@ -74,7 +71,7 @@ class WatchListService {
         do {
             try container.viewContext.save()
         } catch {
-            print("Failed to save to Core Data: \(error)")
+            print("Failed to save to Core Data")
         }
     }
     
@@ -82,6 +79,4 @@ class WatchListService {
         save()
         getWatchList()
     }
-    
-    
 }

@@ -25,6 +25,7 @@
 		4281C2272855FE5A00CB93B0 /* SearchListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4281C2262855FE5A00CB93B0 /* SearchListRow.swift */; };
 		42AA3A972856D093004CB7F0 /* WatchListContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42AA3A952856D093004CB7F0 /* WatchListContainer.xcdatamodeld */; };
 		42AA3A992856D1D0004CB7F0 /* WatchListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA3A982856D1D0004CB7F0 /* WatchListService.swift */; };
+		42E8A98F2868722B00820DB8 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E8A98E2868722B00820DB8 /* Double.swift */; };
 		42F3920C2852F6D400389A8B /* StockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F3920B2852F6D400389A8B /* StockDataService.swift */; };
 		42F392132852FEC900389A8B /* WatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F392122852FEC900389A8B /* WatchListView.swift */; };
 		42F392152852FED600389A8B /* WatchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F392142852FED600389A8B /* WatchListViewModel.swift */; };
@@ -52,6 +53,7 @@
 		4281C2262855FE5A00CB93B0 /* SearchListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListRow.swift; sourceTree = "<group>"; };
 		42AA3A962856D093004CB7F0 /* WatchListContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WatchListContainer.xcdatamodel; sourceTree = "<group>"; };
 		42AA3A982856D1D0004CB7F0 /* WatchListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListService.swift; sourceTree = "<group>"; };
+		42E8A98E2868722B00820DB8 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		42F3920B2852F6D400389A8B /* StockDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDataService.swift; sourceTree = "<group>"; };
 		42F392122852FEC900389A8B /* WatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListView.swift; sourceTree = "<group>"; };
 		42F392142852FED600389A8B /* WatchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListViewModel.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				4218C5DA285498F700F00B6F /* PreviewProvider.swift */,
 				42FECDA22855890700750DD5 /* Color.swift */,
 				4281C21728558EF900CB93B0 /* Date.swift */,
+				42E8A98E2868722B00820DB8 /* Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				4281C2252855E18700CB93B0 /* SearchListViewModel.swift in Sources */,
 				4281C21C2855BB5500CB93B0 /* SearchService.swift in Sources */,
 				4281C21828558EF900CB93B0 /* Date.swift in Sources */,
+				42E8A98F2868722B00820DB8 /* Double.swift in Sources */,
 				4218C5D6285463C000F00B6F /* NetworkingManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,25 +20,11 @@ struct WatchListView: View {
             Divider()
             listTitle
             stockList
-            
-            Button {
-                Task {
-                    await vm.downloadImages()
-                }
-            } label: {
-                Text("FNIEONEG")
-            }
 
-            
-            List {
-                ForEach(vm.symbols, id: \.self) { symbol in
-                    Text(symbol)
-                }
-           }
             Spacer()
         }
         .task {
-            await vm.downloadImages()
+            await vm.fetchQuotes()
         }
         .fullScreenCover(isPresented: $showSearchView) {
             SearchListView()
@@ -96,7 +82,7 @@ extension WatchListView {
                 WatchListRow(stock: stock)
                     .listRowInsets(.init(top: 10,
                                          leading: 0,
-                                         bottom: 10,
+                                         bottom: 0,
                                          trailing: 0)
                     )
             }

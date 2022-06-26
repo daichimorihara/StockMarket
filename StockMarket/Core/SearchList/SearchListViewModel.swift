@@ -8,50 +8,50 @@
 import Foundation
 import Combine
 
+@MainActor
 class SearchListViewModel: ObservableObject {
     @Published var matches = [BestMatch]()
-    @Published var searchText = ""
+    @Published var searchText: String = ""
     
-    let searchService = SearchService()
-    let watchlistService = WatchListService.instance
+    @Published var entities = [WatchListEntity]()
     
     var cancellables = Set<AnyCancellable>()
+    
+    let watchListService = WatchListService.instance
+    let searchService = SearchService()
     
     init() {
         addSubscribers()
     }
     
     func addSubscribers() {
-        
         $searchText
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
-            .sink { [weak self] value in
-                guard !value.isEmpty else {
+            .sink { [weak self] text in
+                guard !text.isEmpty else {
                     self?.matches = []
                     return
                 }
-                self?.searchStocks(keywords: value)
+                Task {
+                    if let savedMatches = try? await self?.searchService.fetchMatches(keywords: text) {
+                        self?.matches = savedMatches
+                    }
+                }
             }
             .store(in: &cancellables)
         
-        searchService.$matches
-            .sink { [weak self] returnedMatches in
-                self?.matches = returnedMatches
+        watchListService.$savedEntities
+            .sink { [weak self] returnedEntities in
+                self?.entities = returnedEntities
             }
             .store(in: &cancellables)
     }
     
-    
-    
-    func searchStocks(keywords: String) {
-        searchService.searchStocks(for: keywords)
-    }
-    
     func updateWatchList(match: BestMatch) {
-        watchlistService.updateWatchList(match: match)
+        watchListService.update(match: match)
     }
     
-    func inWatchList(match: BestMatch) -> Bool {
-        watchlistService.isInWatchList(match: match)
+    func isInWatchList(match: BestMatch) -> Bool {
+        return watchListService.isInWatchList(match: match)
     }
 }

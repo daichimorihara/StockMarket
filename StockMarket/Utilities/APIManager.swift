@@ -15,26 +15,21 @@ import Foundation
 // https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=demo
 
 class APIManager {
-    
-    
-    static func getQuoteURLString(for symbol: String) -> String {
-        getBaseURLString(type: .quote, q: "symbol", a: symbol)
+
+    static func getSearchURL(keywords: String) -> String {
+        return getBaseURLString(key: .search, q: "keywords", a: keywords)
     }
     
-    static func getSearchURLString(for keywords: String) -> String {
-        getBaseURLString(type: .search, q: "keywords", a: keywords)
+    static func getQuoteURL(symbol: String) -> String {
+        return getBaseURLString(key: .quote, q: "symbol", a: symbol)
     }
     
-    static func getBaseURLString(type: FuncType, q: String, a: String) -> String {
-        return "https://www.alphavantage.co/query?function=\(type.rawValue)&\(q)=\(a)&apikey=118SLI3Y8HKS6G0O"
+    static func getBaseURLString(key: URLKey, q: String, a: String) -> String {
+        return "https://www.alphavantage.co/query?function=\(key.rawValue)&\(q)=\(a)&apikey=MA8UGGVII741XFV1"
     }
     
-    enum FuncType: String {
+    enum URLKey: String {
         case quote = "GLOBAL_QUOTE"
         case search = "SYMBOL_SEARCH"
-     //   case daily
-     //   case intraday
     }
-    
-
 }

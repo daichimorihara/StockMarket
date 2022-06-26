@@ -11,7 +11,6 @@ struct SearchListView: View {
     
     @Environment(\.dismiss) var dismiss
     @StateObject var vm = SearchListViewModel()
-    @EnvironmentObject var watchVM: WatchListViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -25,16 +24,13 @@ struct SearchListView: View {
             List {
                 ForEach(vm.matches) { match in
                     SearchListRow(match: match,
-                                  isInWatchList: vm.inWatchList(match: match),
+                                  isInWatchList: vm.isInWatchList(match: match),
                                   updateWatchList:{
                         vm.updateWatchList(match: match)
-                        watchVM.getStock(for: match.symbol)
                     })
                 }
             }
             .listStyle(PlainListStyle())
-            
-            
             
             Spacer()
         }
@@ -44,7 +40,6 @@ struct SearchListView: View {
 struct SearchListView_Previews: PreviewProvider {
     static var previews: some View {
         SearchListView()
-            .environmentObject(dev.watchListVM)
     }
 }
 

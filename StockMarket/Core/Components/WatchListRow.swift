@@ -14,6 +14,18 @@ struct WatchListRow: View {
     init(stock: Quote) {
         self.stock = stock
     }
+  
+    var price: Double {
+        Double(stock.price) ?? 0.0
+    }
+    
+    var change: Double {
+        Double(stock.change) ?? 0.0
+    }
+    
+    var changePercent: Double {
+        Double(stock.changePercent.dropLast()) ?? 0.0
+    }
     
     var changePositive: Bool {
         (Double(stock.change) ?? 0) >= 0
@@ -53,7 +65,7 @@ extension WatchListRow {
     
     private var centerColumn: some View {
         VStack {
-            Text(stock.price)
+            Text(String(format: "%.2f", price))
                 .font(.headline)
                 .foregroundColor(.theme.accent)
             
@@ -71,9 +83,9 @@ extension WatchListRow {
     
     var rightColumn: some View {
         VStack {
-            Text(stock.change)
+            Text(String(format: "%.2f", change))
                 .font(.subheadline)
-            Text(stock.changePercent)
+            Text(String(format: "%.2f", changePercent) + "%")
                 .font(.caption)
         }
         .foregroundColor(changePositive ? .theme.green : .theme.red)
