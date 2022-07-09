@@ -12,10 +12,15 @@ struct WatchListView: View {
     @StateObject var vm = WatchListViewModel()
     @State private var symbolText = ""
     @State private var showSearchView = false
+    @State private var showDetailView = false
+    @State private var selectedStock: Quote?
     
     var body: some View {
   
         VStack {
+            NavigationLink(isActive: $showDetailView,
+                           destination: { DetailLoadingView(stock: $selectedStock) },
+                           label: { EmptyView() })
             customHeader
             Divider()
             listTitle
@@ -85,6 +90,10 @@ extension WatchListView {
                                          bottom: 0,
                                          trailing: 0)
                     )
+                    .onTapGesture {
+                        selectedStock = stock
+                        showDetailView.toggle()
+                    }
             }
         }
         .listStyle(PlainListStyle())

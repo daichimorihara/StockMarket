@@ -23,6 +23,11 @@
 		4281C2212855C10100CB93B0 /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4281C2202855C10100CB93B0 /* SearchListView.swift */; };
 		4281C2252855E18700CB93B0 /* SearchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4281C2242855E18700CB93B0 /* SearchListViewModel.swift */; };
 		4281C2272855FE5A00CB93B0 /* SearchListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4281C2262855FE5A00CB93B0 /* SearchListRow.swift */; };
+		428DF26328694F4900485331 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DF26228694F4900485331 /* DetailView.swift */; };
+		428DF2652869551A00485331 /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DF2642869551A00485331 /* ChartModel.swift */; };
+		428DF26728695DF000485331 /* ChartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DF26628695DF000485331 /* ChartService.swift */; };
+		428DF269286960E600485331 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DF268286960E600485331 /* DetailViewModel.swift */; };
+		428DF26B2869684B00485331 /* ChartVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DF26A2869684B00485331 /* ChartVIew.swift */; };
 		42AA3A972856D093004CB7F0 /* WatchListContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42AA3A952856D093004CB7F0 /* WatchListContainer.xcdatamodeld */; };
 		42AA3A992856D1D0004CB7F0 /* WatchListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA3A982856D1D0004CB7F0 /* WatchListService.swift */; };
 		42E8A98F2868722B00820DB8 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E8A98E2868722B00820DB8 /* Double.swift */; };
@@ -51,6 +56,11 @@
 		4281C2202855C10100CB93B0 /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
 		4281C2242855E18700CB93B0 /* SearchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModel.swift; sourceTree = "<group>"; };
 		4281C2262855FE5A00CB93B0 /* SearchListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListRow.swift; sourceTree = "<group>"; };
+		428DF26228694F4900485331 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		428DF2642869551A00485331 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
+		428DF26628695DF000485331 /* ChartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartService.swift; sourceTree = "<group>"; };
+		428DF268286960E600485331 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		428DF26A2869684B00485331 /* ChartVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVIew.swift; sourceTree = "<group>"; };
 		42AA3A962856D093004CB7F0 /* WatchListContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WatchListContainer.xcdatamodel; sourceTree = "<group>"; };
 		42AA3A982856D1D0004CB7F0 /* WatchListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListService.swift; sourceTree = "<group>"; };
 		42E8A98E2868722B00820DB8 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
@@ -129,6 +139,7 @@
 				42470A2A28520FC300EBF140 /* StockModel.swift */,
 				4281C21928559F3300CB93B0 /* SearchModel.swift */,
 				42AA3A952856D093004CB7F0 /* WatchListContainer.xcdatamodeld */,
+				428DF2642869551A00485331 /* ChartModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,6 +153,16 @@
 			path = SearchList;
 			sourceTree = "<group>";
 		};
+		428DF26128694F3B00485331 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				428DF26228694F4900485331 /* DetailView.swift */,
+				428DF268286960E600485331 /* DetailViewModel.swift */,
+				428DF26A2869684B00485331 /* ChartVIew.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		42F3920A2852F6C500389A8B /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +170,7 @@
 				4218C5DC2854A31D00F00B6F /* QuoteService.swift */,
 				4281C21B2855BB5500CB93B0 /* SearchService.swift */,
 				42AA3A982856D1D0004CB7F0 /* WatchListService.swift */,
+				428DF26628695DF000485331 /* ChartService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -165,6 +187,7 @@
 		42F3920E2852FE9700389A8B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				428DF26128694F3B00485331 /* Detail */,
 				42FECD9F2855848200750DD5 /* Components */,
 				4281C21F2855C0DE00CB93B0 /* SearchList */,
 				42F3920F2852FEA000389A8B /* WatchList */,
@@ -270,18 +293,23 @@
 				4281C21E2855BE0A00CB93B0 /* SearchBarView.swift in Sources */,
 				42FECDA1285584A400750DD5 /* WatchListRow.swift in Sources */,
 				42FECDA32855890700750DD5 /* Color.swift in Sources */,
+				428DF269286960E600485331 /* DetailViewModel.swift in Sources */,
 				42AA3A972856D093004CB7F0 /* WatchListContainer.xcdatamodeld in Sources */,
 				42470A1E28520FB200EBF140 /* ContentView.swift in Sources */,
 				42470A1C28520FB200EBF140 /* StockMarketApp.swift in Sources */,
 				42AA3A992856D1D0004CB7F0 /* WatchListService.swift in Sources */,
 				42F392132852FEC900389A8B /* WatchListView.swift in Sources */,
 				42470A2B28520FC300EBF140 /* StockModel.swift in Sources */,
+				428DF26728695DF000485331 /* ChartService.swift in Sources */,
 				4218C5DB285498F700F00B6F /* PreviewProvider.swift in Sources */,
 				4281C21A28559F3300CB93B0 /* SearchModel.swift in Sources */,
+				428DF26328694F4900485331 /* DetailView.swift in Sources */,
 				4281C2252855E18700CB93B0 /* SearchListViewModel.swift in Sources */,
 				4281C21C2855BB5500CB93B0 /* SearchService.swift in Sources */,
 				4281C21828558EF900CB93B0 /* Date.swift in Sources */,
+				428DF26B2869684B00485331 /* ChartVIew.swift in Sources */,
 				42E8A98F2868722B00820DB8 /* Double.swift in Sources */,
+				428DF2652869551A00485331 /* ChartModel.swift in Sources */,
 				4218C5D6285463C000F00B6F /* NetworkingManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

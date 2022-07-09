@@ -23,11 +23,7 @@ class DeveloperPreview {
     
     let match = BestMatch(symbol: "TWTR", name: "Twitter Inc", type: "Equaty", region: "United States", marketOpen: "9:30", marketClose: "16:00", timezone: "UTC-4", currency: "USD", matchScore: "0.52")
     
-    
-//    let watchListVM = WatchListViewModel()
-//    let watchListVM = Task {
-//        await WatchListViewModel()
-//    }
+    let data: [Double] = [21, 22, 23, 25, 34, 31, 28, 26, 29, 30, 34, 35, 41, 38, 35, 30, 29, 27, 28, 29, 30, 29]
 }
 
 
