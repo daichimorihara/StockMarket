@@ -29,8 +29,10 @@ class APIManager {
     }
     
     static func getBaseURLString(key: URLKey, q: String, a: String) -> String {
-        return "https://www.alphavantage.co/query?function=\(key.rawValue)&\(q)=\(a)&apikey=MA8UGGVII741XFV1"
+        return "https://www.alphavantage.co/query?function=\(key.rawValue)&\(q)=\(a)&apikey=118SLI3Y8HKS6G0O"
     }
+    
+    
     
     enum URLKey: String {
         case quote = "GLOBAL_QUOTE"

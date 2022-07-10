@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+@MainActor
 class DetailViewModel: ObservableObject {
     
     //@Published var chartData = [TimeSeriesDaily]()

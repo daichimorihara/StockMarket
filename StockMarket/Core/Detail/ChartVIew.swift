@@ -14,8 +14,6 @@ struct ChartVIew: View {
     let minY: Double
     let priceChange: Double
     let lineColor: Color
-//    let startingDate: Date
-//    let endingDate: Date
     var yAxis: Double {
         maxY - minY
     }
@@ -24,7 +22,7 @@ struct ChartVIew: View {
         self.data = data
         self.maxY = data.max() ?? 0
         self.minY = data.min() ?? 0
-        self.priceChange = (data.last ?? 0) - (data.first ?? 0)
+        self.priceChange = (data.first ?? 0) - (data.last ?? 0)
         self.lineColor = priceChange < 0 ? Color.theme.red : Color.theme.green
     }
         
@@ -52,7 +50,7 @@ extension ChartVIew {
         GeometryReader { geo in
             Path { path in
                 for idx in data.indices {
-                    let x = geo.size.width * CGFloat(idx) / CGFloat(data.count - 1)
+                    let x = geo.size.width * CGFloat(data.count - 1 - idx) / CGFloat(data.count - 1)
                     let y = geo.size.height * CGFloat(1 - (data[idx] - minY) / yAxis)
                     if idx == 0 {
                         path.move(to: CGPoint(x: x, y: y))

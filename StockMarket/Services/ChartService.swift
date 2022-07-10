@@ -37,14 +37,14 @@ class ChartService {
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             if let decoded = try? JSONDecoder().decode(ChartModel.self, from: data) {
-                let values = Array(decoded.timeSeriesDaily.values)
+                let dic = decoded.timeSeriesDaily.sorted(by: { $0.key > $1.key }).prefix(30)
                 
                 var returnedData = [Double]()
-                for value in values {
-                    if let data = Double(value.close) {
-                        returnedData.append(data)
-                    }
+
+                for (_, value) in dic {
+                    returnedData.append(Double(value.close) ?? 0.0)
                 }
+
                 return returnedData
             } else {
                 throw URLError(.badURL)

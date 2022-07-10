@@ -15,11 +15,13 @@ struct WatchListView: View {
     @State private var showDetailView = false
     @State private var selectedStock: Quote?
     
+    @State private var companyName: String?
+    
     var body: some View {
   
         VStack {
             NavigationLink(isActive: $showDetailView,
-                           destination: { DetailLoadingView(stock: $selectedStock) },
+                           destination: { DetailLoadingView(stock: $selectedStock, name: $companyName) },
                            label: { EmptyView() })
             customHeader
             Divider()
@@ -92,6 +94,7 @@ extension WatchListView {
                     )
                     .onTapGesture {
                         selectedStock = stock
+                        companyName = vm.entities.first(where: { $0.symbol == stock.symbol })?.name ?? ""
                         showDetailView.toggle()
                     }
             }
